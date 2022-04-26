@@ -57,4 +57,20 @@ return {
          require("telescope").load_extension "media_files"
       end,
    },
+
+   {
+      "zah/nim.vim",
+   },
+
+   {
+      "github/copilot.vim",
+   },
+
+   {
+      "~/.config/nvim/lua/custom/plugins/custom/bang.vim",
+   },
+
+   {
+      "mg979/vim-visual-multi",
+   },
 }

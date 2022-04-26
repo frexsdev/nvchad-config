@@ -2,7 +2,7 @@ local M = {}
 local userPlugins = require "custom.plugins"
 
 M.ui = {
-   theme = "nord",
+   theme = "chadracula",
    transparency = true,
 }
 
@@ -12,9 +12,13 @@ M.plugins = {
       lspconfig = {
          setup_lspconf = "custom.plugins.lspconfig",
       },
+      luasnip = {
+         snippet_path = { "~/.config/nvim/lua/custom/snippets" },
+      },
    },
    status = {
       alpha = true,
+      colorizer = true,
    },
 }
 

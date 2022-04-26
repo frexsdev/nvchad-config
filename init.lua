@@ -6,6 +6,7 @@
 local map = require("core.utils").map
 
 map("n", "<leader>cc", ":Telescope <CR>")
+map("n", "<leader>t", ":NvimTreeToggle <CR>")
 map("n", "<leader>q", ":q <CR>")
 map("n", "<leader>bn", ":bn <CR>")
 map("n", "<leader>bp", ":bp <CR>")
@@ -17,5 +18,10 @@ map("n", "<esc>", ":noh <CR>")
 -- CONFIG
 vim.g.did_load_filetypes = 1
 vim.opt.relativenumber = true
+
+vim.cmd [[
+autocmd BufRead,BufNewFile *.bang set filetype=bang
+autocmd BufRead,BufNewFile *.noq set filetype=noq
+]]
 
 -- NOTE: the 4th argument in the map function is be a table i.e options but its most likely un-needed so dont worry about it
