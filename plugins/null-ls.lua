@@ -25,6 +25,9 @@ local sources = {
 
    -- C, C++
    b.formatting.clang_format,
+
+   -- Assembly
+   b.formatting.asmfmt,
 }
 
 local M = {}

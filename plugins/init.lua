@@ -63,10 +63,6 @@ return {
    },
 
    {
-      "github/copilot.vim",
-   },
-
-   {
       "~/.config/nvim/lua/custom/plugins/custom/bang.vim",
    },
 

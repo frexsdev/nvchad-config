@@ -10,42 +10,50 @@ if exists("b:current_syntax")
   finish
 endif
 
-syntax keyword bangTodos TODO XXX FIXME NOTE
+syn keyword bangTodos TODO XXX FIXME NOTE
 
 " Language keywords
-syntax keyword bangKeywords if else while do include memory proc const end offset assert reset in inline here let addr-of call-like peek return
+syn keyword bangKeywords if else while do include memory proc const end offset assert reset in inline here let addr-of call-like peek
 
 " Comments
-syntax region bangCommentLine start="//" end="$" contains=bangTodos
+syn region bangCommentLine start="//" end="$" contains=bangTodos
 
 " String literals
-syntax region bangString start=/\v"/ skip=/\v\\./ end=/\v"/ contains=bangEscapes
+syn region bangString start=/\v"/ skip=/\v\\./ end=/\v"/ contains=bangEscapes
 
 " Char literals
-syntax region bangChar start=/\v'/ skip=/\v\\./ end=/\v'/ contains=bangEscapes
+syn region bangChar start=/\v'/ skip=/\v\\./ end=/\v'/ contains=bangEscapes
 
 " Escape literals \n, \r, ....
-syntax match bangEscapes display contained "\\[nr\"']"
+syn match bangEscapes display contained "\\[nr\"']"
 
 " Number literals
-syntax match bangNumber "\v<\d+>"
+syn match bangNumber "\d\+"
 
 " Type names the compiler recognizes
-syntax keyword bangTypeNames addr int ptr bool
+syn keyword bangTypes addr int ptr bool
 
 " Operators
-syntax match bangOperators "+\|-\|*\|=\|!\|>\|<\|>=\|<=\|==\|!=\|@\|@!"
+syn match bangOperators "=\|!=\|>\|<\|>=\|<=\|+\|-\|*\|divmod\|max\|shr\|shl\|or\|and\|not\|!8\|@8\|!16\|@16\|!32\|@32\|!64\|@64\|cast(int)\|cast(bool)\|cast(ptr)@!"
+
+" Intrinsics
+syn keyword bangIntrinsics dup swap drop print over rot
+
+" Syscall
+syn match bangSyscall "syscall\d\+"
 
 " Set highlights
-highlight default link bangTodos Todo
-highlight default link bangKeywords Keyword
-highlight default link bangCommentLine Comment
-highlight default link bangString String
-highlight default link bangNumber Number
-highlight default link bangTypeNames Type
-highlight default link bangChar Character
-highlight default link bangEscapes SpecialChar
-highlight default link bangOperators Keyword 
+hi def link bangTodos       Todo
+hi def link bangKeywords    Keyword
+hi def link bangCommentLine Comment
+hi def link bangString      String
+hi def link bangNumber      Number
+hi def link bangTypes       Type
+hi def link bangChar        Character
+hi def link bangEscapes     SpecialChar
+hi def link bangOperators   Keyword
+hi def link bangIntrinsics  Function
+hi def link bangSyscall     Keyword
 
 let b:current_syntax = "bang"
 
