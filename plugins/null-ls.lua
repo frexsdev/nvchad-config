@@ -2,32 +2,15 @@ local null_ls = require "null-ls"
 local b = null_ls.builtins
 
 local sources = {
-
    b.formatting.prettierd,
-
-   -- Lua
    b.formatting.stylua,
-
-   -- Shell
-   b.formatting.shfmt,
-
-   -- Zig
    b.formatting.zigfmt,
-
-   -- Rust
-   b.formatting.rustfmt,
-
-   -- Nim
-   b.formatting.nimpretty,
-
-   -- Python
    b.formatting.black,
-
-   -- C, C++
    b.formatting.clang_format,
-
-   -- Assembly
-   b.formatting.asmfmt,
+   b.formatting.cljstyle,
+   b.formatting.rustfmt,
+   b.formatting.brittany,
+   b.formatting.elm_format,
 }
 
 local M = {}

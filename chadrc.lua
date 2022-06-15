@@ -1,25 +1,25 @@
 local M = {}
-local userPlugins = require "custom.plugins"
 
 M.ui = {
    theme = "chadracula",
    transparency = true,
 }
 
+M.options = {
+   user = function()
+      require "custom.options"
+   end,
+}
+
 M.plugins = {
-   install = userPlugins,
+   user = require "custom.plugins",
    options = {
       lspconfig = {
          setup_lspconf = "custom.plugins.lspconfig",
       },
-      luasnip = {
-         snippet_path = { "~/.config/nvim/lua/custom/snippets" },
-      },
-   },
-   status = {
-      alpha = true,
-      colorizer = true,
    },
 }
+
+M.mappings = require "custom.mappings"
 
 return M
